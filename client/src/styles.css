@@ -81,34 +81,14 @@ select {
 }
 
 
-.problem-card {
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 15px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+.problem-table th,
+.problem-table td {
+    padding: 10px;
+    text-align: left;
 }
 
-.problem-row-1 {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.problem-row-1 input {
-    margin-right: 10px;
-}
-
-.problem-title {
-    flex: 1;
-    font-weight: 600;
-    font-size: 16px;
-}
-
-.difficulty {
-    font-weight: bold;
-    text-align: right;
-    white-space: nowrap;
+.problem-table th {
+    background-color: #f2f2f2;
 }
 
 .difficulty.easy {
@@ -121,11 +101,4 @@ select {
 
 .difficulty.hard {
     color: red;
-}
-
-.problem-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 20px;
-    padding: 20px;
 }

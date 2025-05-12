@@ -70,27 +70,44 @@ export default function DsaSheet() {
                     </select>
                 </div>
 
-                <div className="problem-grid">
-                    {problems.map(problem => (
-                        <div key={problem._id} className="problem-card">
-                            <div className="problem-row-1">
-                                <input
-                                    type="checkbox"
-                                    checked={completed.includes(problem._id)}
-                                    onChange={() => toggle(problem._id)}
-                                />
-                                <div className="problem-title">{problem.title}</div>
-                                <div className={`difficulty ${problem.level.toLowerCase()}`}>{problem.level}</div>
-
-                                <a href={problem.youtube} target="_blank" rel="noreferrer">YouTube</a>
-                                <span> | </span>
-                                <a href={problem.leetcode} target="_blank" rel="noreferrer">LeetCode</a>
-                                <span> | </span>
-                                <a href={problem.article} target="_blank" rel="noreferrer">Article</a>
-                            </div>
-                        </div>
-                    ))}
-                </div>
+                <table className="problem-table" style={{ width: '100%', borderCollapse: 'collapse' }}>
+                    <thead>
+                        <tr>
+                            <th></th> {/* Checkbox column */}
+                            <th>Title</th>
+                            <th>Difficulty</th>
+                            <th>YouTube</th>
+                            <th>LeetCode</th>
+                            <th>Article</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {problems.map(problem => (
+                            <tr key={problem._id} style={{ borderBottom: '1px solid #ccc' }}>
+                                <td style={{ textAlign: 'center' }}>
+                                    <input
+                                        type="checkbox"
+                                        checked={completed.includes(problem._id)}
+                                        onChange={() => toggle(problem._id)}
+                                    />
+                                </td>
+                                <td>{problem.title}</td>
+                                <td className={`difficulty ${problem.level.toLowerCase()}`}>
+                                    {problem.level}
+                                </td>
+                                <td>
+                                    <a href={problem.youtube} target="_blank" rel="noreferrer">YouTube</a>
+                                </td>
+                                <td>
+                                    <a href={problem.leetcode} target="_blank" rel="noreferrer">LeetCode</a>
+                                </td>
+                                <td>
+                                    <a href={problem.article} target="_blank" rel="noreferrer">Article</a>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
 
             </div>
         </div>
